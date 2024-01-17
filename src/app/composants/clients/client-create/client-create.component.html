@@ -1,0 +1,122 @@
+<h2>Nouveau client</h2>
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input type="text" id="name" class="form-control" formControlName="name" />
+    <div
+      *ngIf="
+        clientForm.get('name')?.hasError('required') &&
+        clientForm.get('name')?.touched
+      "
+    >
+      Le nom est obligatoire
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="firstname" class="form-label">Prénom:</label>
+    <input
+      type="text"
+      id="firstname"
+      class="form-control"
+      formControlName="firstname"
+    />
+    <div
+      *ngIf="
+        clientForm.get('firstname')?.hasError('required') &&
+        clientForm.get('firstname')?.touched
+      "
+    >
+      Le prénom est obligatoire
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="date" class="form-label">Date de naissance:</label>
+    <input
+      type="date"
+      id="birthdate"
+      class="form-control"
+      formControlName="birthdate"
+    />
+    <div
+      *ngIf="
+        clientForm.get('birthdate')?.hasError('required') &&
+        clientForm.get('birthdate')?.touched
+      "
+    >
+      La date de naissance est obligatoire
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="phone" class="form-label">Téléphone:</label>
+    <input
+      type="text"
+      id="phone"
+      class="form-control"
+      formControlName="phone"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="gsm" class="form-label">portable:</label>
+    <input type="text" id="gsm" class="form-control" formControlName="gsm" />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
+    <input
+      type="email"
+      id="email"
+      class="form-control"
+      formControlName="email"
+    />
+    <div
+      *ngIf="
+        clientForm.get('email')?.hasError('required') &&
+        clientForm.get('email')?.touched
+      "
+    >
+      Email is required.
+    </div>
+    <div
+      *ngIf="
+        clientForm.get('email')?.hasError('email') &&
+        clientForm.get('email')?.touched
+      "
+    >
+      Please enter a valid email address.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="address" class="form-label">Adresse:</label>
+    <input
+      type="text"
+      id="address"
+      class="form-control"
+      formControlName="address"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="city" class="form-label">Ville:</label>
+    <input type="text" id="city" class="form-control" formControlName="city" />
+  </div>
+  <div class="mb-3">
+    <label for="country" class="form-label">Pays:</label>
+    <input
+      type="text"
+      id="country"
+      class="form-control"
+      formControlName="country"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="zip" class="form-label">Code postal:</label>
+    <input type="text" id="zip" class="form-control" formControlName="zip" />
+  </div>
+  <button type="submit" class="btn btn-secondary" style="margin-right: 5px">
+    Créer
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="goBack()">
+    Retour
+  </button>
+</form>

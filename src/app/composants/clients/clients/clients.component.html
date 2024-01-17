@@ -1,0 +1,42 @@
+<div class="container">
+  <p>
+    <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Nom ou prénom"
+      aria-label="Chercher"
+      (keyup)="onChange($event)"
+      (search)="onSearch($event)"
+    />
+  </p>
+  <p>
+    <a routerLink="/clients/add" class="btn btn-secondary">Nouveau client</a>
+  </p>
+
+  <div class="row row-cotls-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col" *ngFor="let client of filteredClient">
+      <div class="card card shadow-sm">
+        <div class="card-header">{{ client.name }} {{ client.firstname }}</div>
+        <div class="card-body">
+          <h5 class="card-title">Titre</h5>
+          <div class="card-text">
+            <div>
+              Date de naissance: {{ client.birthdate | date : "dd/MM/yyyy" }}
+            </div>
+            <div>Tél.:{{ client.phone }}</div>
+            <div>Portable: {{ client.gsm }}</div>
+            <div>Email:{{ client.email }}</div>
+            <div>
+              Adresse: {{ client.address }} {{ client.city }} {{ client.zip }}
+            </div>
+          </div>
+          <a
+            routerLink="/clients/details/{{ client.id }}"
+            class="btn btn-secondary"
+            >Voir</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
