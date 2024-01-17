@@ -1,0 +1,14 @@
+<h2>Fiche patient</h2>
+<div>{{ client?.name }}{{ client?.firstname }}</div>
+<a
+  type="button"
+  class="btn btn-secondary"
+  routerLink="/clients/update/{{ client?.id }}"
+>
+  Modifier
+</a>
+<hr />
+<h2>Liste des formulaires</h2>
+<button type="button" class="btn btn-secondary" (click)="goBack()">
+  Retour
+</button>

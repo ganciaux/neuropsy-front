@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ClientService } from '../../../services/client.service';
 import { Client } from '../../../models/client.model';
 import { Location } from '@angular/common';
@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-client-details',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './client-details.component.html',
   styleUrl: './client-details.component.css',
 })
