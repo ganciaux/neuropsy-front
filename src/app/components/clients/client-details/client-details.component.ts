@@ -3,11 +3,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ClientService } from '../../../services/client.service';
 import { Client } from '../../../models/client.model';
 import { Location } from '@angular/common';
+import { ClientCardComponent } from '../client-card/client-card.component';
 
 @Component({
   selector: 'app-client-details',
   standalone: true,
-  imports: [RouterLink],
+  imports: [ClientCardComponent, RouterLink],
   templateUrl: './client-details.component.html',
   styleUrl: './client-details.component.css',
 })

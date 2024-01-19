@@ -4,11 +4,12 @@ import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ClientService } from '../../../services/client.service';
 import { RouterLink } from '@angular/router';
+import { ClientCardComponent } from '../client-card/client-card.component';
 
 @Component({
   selector: 'app-clients',
   standalone: true,
-  imports: [FormsModule, NgFor, DatePipe, RouterLink],
+  imports: [FormsModule, NgFor, DatePipe, RouterLink, ClientCardComponent],
   templateUrl: './clients.component.html',
   styleUrl: './clients.component.css',
 })

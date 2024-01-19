@@ -16,4 +16,9 @@ export class ClientService {
   getClient(id: number): Observable<Client | undefined> {
     return of(CLIENTS.find((client) => client.id === id));
   }
+
+  addClient(client: Client): void {
+    console.log("addClient:", client )
+    CLIENTS.push(client);
+  }
 }

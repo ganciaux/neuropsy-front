@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from '../../../services/client.service';
 import { Location, NgIf } from '@angular/common';
 import { Client } from '../../../models/client.model';
@@ -10,7 +10,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-client-create',
@@ -26,7 +25,8 @@ export class ClientCreateComponent {
     private route: ActivatedRoute,
     private clientService: ClientService,
     private location: Location,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -38,9 +38,8 @@ export class ClientCreateComponent {
   }
 
   createForm() {
-    // Créez le formulaire avec les champs correspondants au modèle Client
     this.clientForm = this.formBuilder.group({
-      id: [null], // Vous pouvez ajouter des validateurs ici si nécessaire
+      id: [null],
       name: ['', Validators.required],
       firstname: ['', Validators.required],
       birthdate: [null, Validators.required],
@@ -57,15 +56,13 @@ export class ClientCreateComponent {
   }
 
   onSubmit() {
-    console.log('onSubmit');
-    // Logique à exécuter lors de la soumission du formulaire
     if (this.clientForm?.valid) {
       const formData: Client = this.clientForm.value;
-      // Vous pouvez maintenant utiliser formData pour effectuer des opérations
-      console.log(formData);
+      this.clientService.addClient(formData);
+      this.router.navigate(['/clients']);
+
     } else {
-      console.log('error');
-      // Gérez les erreurs de validation si nécessaire
+      console.log('error');      
     }
   }
 }
